@@ -1,21 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { View, Text, StatusBar, StyleSheet } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { useFonts, RobotoSlab_400Regular, RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
+import Routes from './src/routes'
 
-export default function App() {
+const App: React.FC = () => {
+  const [fontsLoaded] = useFonts({
+    RobotoSlab_400Regular,
+    RobotoSlab_500Medium
+  })
+
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{ color: '#fafafa' }}>Carregando...</Text>
+      </View>
+    )
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" backgroundColor="#312e38" />
+      <View style={{ backgroundColor: '#312e38', flex: 1 }}>
+        <Routes />
+      </View>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   app: {
+//     fontFamily:
+//   }
+// });
+
+export default App
