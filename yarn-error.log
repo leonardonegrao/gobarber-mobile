@@ -1,5 +1,5 @@
 Arguments: 
-  /home/leonardonegrao/.nvm/versions/node/v14.15.1/bin/node /usr/share/yarn/bin/yarn.js add @types/styled-components/native
+  /home/leonardonegrao/.nvm/versions/node/v14.15.1/bin/node /usr/share/yarn/bin/yarn.js add eslint-plugin-react-hooks -D
 
 PATH: 
   /home/leonardonegrao/.vscode-server/bin/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/bin:/home/leonardonegrao/.zinit/polaris/sbin:/home/leonardonegrao/.zinit/polaris/bin:/home/leonardonegrao/.nvm/versions/node/v14.15.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/oraclexe/app/oracle/product/11.2.0/server/bin:/mnt/c/Python38/Scripts/:/mnt/c/Python38/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/oraclexe/app/oracle/product/11.2.0/server/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Git/cmd:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/MinGW/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/leona/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/leona/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2020.2.2/bin:/mnt/c/Users/leona/Desktop/Workspace/apache-maven-3.6.3/bin:/mnt/c/Program Files/Java/jdk1.8.0_261/bin:/mnt/c/Users/leona/AppData/Local/hyper/app-3.0.2/resources/bin:/mnt/c/flutter/bin:/mnt/c/Users/leona/AppData/Local/Android/Sdk:/mnt/c/Users/leona/AppData/Local/Android/Sdk/platforms:/mnt/c/Users/leona/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2020.2.3/bin:/usr/local/go/bin:/home/leonardonegrao/.yarn/bin:/usr/local/go/bin:/home/leonardonegrao/.yarn/bin
@@ -14,17 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fstyled-components/native: Request "https://registry.yarnpkg.com/@types%2fstyled-components/native" returned a 405
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66997:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:140749:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141721:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141643:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1327:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
 
 npm manifest: 
   {
@@ -37,10 +28,13 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@expo-google-fonts/roboto-slab": "^0.1.0",
       "@react-native-community/masked-view": "0.1.10",
       "@react-navigation/native": "^5.8.10",
       "@react-navigation/stack": "^5.12.8",
+      "@types/styled-components-react-native": "^5.1.0",
       "expo": "~40.0.0",
+      "expo-font": "~8.4.0",
       "expo-status-bar": "~1.0.3",
       "react": "16.13.1",
       "react-dom": "16.13.1",
@@ -1143,6 +1137,11 @@ Lockfile:
       minimatch "^3.0.4"
       strip-json-comments "^3.1.1"
   
+  "@expo-google-fonts/roboto-slab@^0.1.0":
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto-slab/-/roboto-slab-0.1.0.tgz#f2e074b954275f9820602b05251ca0692bc02c6f"
+    integrity sha512-C5YKllmFAIbzxzSeMBkKHQq3IFdE9Z9NcSmtOluTowhTRiIaqFHasVU2FY9wPK/pg5f72dKYkxsVLq52t33QlQ==
+  
   "@expo/babel-preset-cli@0.2.18":
     version "0.2.18"
     resolved "https://registry.yarnpkg.com/@expo/babel-preset-cli/-/babel-preset-cli-0.2.18.tgz#136acf8a0efe259e29ebc614b68552e5acb47d86"
@@ -1559,7 +1558,7 @@ Lockfile:
     dependencies:
       "@types/react" "^16"
   
-  "@types/react-native@~0.63.2":
+  "@types/react-native@*", "@types/react-native@~0.63.2":
     version "0.63.43"
     resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.43.tgz#0278dd540f8479b35ae5d6ef373dd9b3be4cffb1"
     integrity sha512-zFD+rFf7xmk3ZL5laaGdWB8NLNoN36TjHc2M5PcT5gXcDk7ZJBPsiabNcPDQPSIU/om8YPwBpaFdd1IiyuIM+g==
@@ -1595,7 +1594,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
     integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
   
-  "@types/styled-components@^5.1.7":
+  "@types/styled-components-react-native@^5.1.0":
+    version "5.1.0"
+    resolved "https://registry.yarnpkg.com/@types/styled-components-react-native/-/styled-components-react-native-5.1.0.tgz#58c3e58d53c789f71dfbd7396ec8f2f4ec5f169b"
+    integrity sha512-aUAikzt1d8FGgGbybBUgwcjIEhzE98kK3SXx3Zg7hhJMln4jtkvGddBj91uQmBqFCLb+4ox6EoFI02xOcs48yQ==
+    dependencies:
+      "@types/react" "*"
+      "@types/react-native" "*"
+      "@types/styled-components" "*"
+  
+  "@types/styled-components@*", "@types/styled-components@^5.1.7":
     version "5.1.7"
     resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-5.1.7.tgz#3cd10b088c1cb1acde2e4b166b3e8275a3083710"
     integrity sha512-BJzPhFygYspyefAGFZTZ/8lCEY4Tk+Iqktvnko3xmJf9LrLqs3+grxPeU3O0zLl6yjbYBopD0/VikbHgXDbJtA==
