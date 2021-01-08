@@ -13,6 +13,8 @@ import Icon from '@expo/vector-icons/build/Feather'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/mobile'
 import * as Yup from 'yup'
+
+import { useAuth } from '../../hooks/Auth'
 import getValidationErrors from '../../utils/getValidationErrors'
 
 import Input from '../../components/Input'
@@ -38,6 +40,8 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
   const passwordInputRef = useRef<TextInput>(null)
 
+  const auth = useAuth()
+
   const handleSignIn = useCallback(async (data: SignInFormData) => {
     try {
       formRef.current?.setErrors({})
@@ -53,10 +57,10 @@ const SignIn: React.FC = () => {
         abortEarly: false,
       })
 
-      // await auth.signIn({
-      //   email: data.email,
-      //   password: data.password
-      // })
+      await auth.signIn({
+        email: data.email,
+        password: data.password,
+      })
 
       // history.push('/dashboard')
     } catch (err) {
